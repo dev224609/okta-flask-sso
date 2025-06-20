@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Your Token Claims</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr><th>Claim</th><th>Value</th></tr>
+    </thead>
+    <tbody>
+      {% for key, val in user.claims.items() %}
+        <tr>
+          <td>{{ key }}</td>
+          <td>{{ val }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <h3>Raw Tokens</h3>
+  <pre><strong>ID Token:</strong> {{ user.id_token }}</pre>
+  <pre><strong>Access Token:</strong> {{ user.access_token }}</pre>
+{% endblock %}
